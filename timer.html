@@ -18,9 +18,16 @@ body{margin:0; background:#f2f2f2; font-family:Arial; display:flex; flex-directi
 </head>
 <body>
 
-    <div class="title">Timer</div>
+<div class="title">Timer</div>
 <div class="picker" id="picker">
   <div class="col" id="h"></div><div class="line"></div>
   <div class="col" id="m"></div><div class="line"></div>
   <div class="col" id="s"></div><div class="line"></div>
 </div>
+
+<div class="display" id="display">00:00:00</div>
+<button class="btn" id="btn" onclick="start()">▶</button>
+
+<audio id="alarm" loop>
+  <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
+</audio>
