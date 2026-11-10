@@ -31,3 +31,22 @@ body{margin:0; background:#f2f2f2; font-family:Arial; display:flex; flex-directi
 <audio id="alarm" loop>
   <source src="https://actions.google.com/sounds/v1/alarms/beep_short.ogg" type="audio/ogg">
 </audio>
+
+<script>
+//saves your 3 scroll columns and 3 selected time values so you don't have to search for them every time.
+const h = document.getElementById('h');
+const m = document.getElementById('m');
+const s = document.getElementById('s');
+let H=0, M=0, S=0;
+
+//creates the numbers inside one column.
+function make(col, max){
+  col.innerHTML = "";
+  for(let i=0;i<=max;i++){
+    const sp = document.createElement('span');
+    sp.textContent = String(i).padStart(2,'0');
+    col.appendChild(sp);
+  }
+  col.addEventListener('scroll', () => updateAll());
+}
+
