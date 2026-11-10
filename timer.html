@@ -50,3 +50,19 @@ function make(col, max){
   col.addEventListener('scroll', () => updateAll());
 }
 
+make(h,23);
+make(m,59);
+make(s,59);
+
+// make the starting number at the center
+function applyPaddingAndInit(col){
+  const first = col.querySelector('span');
+  if(!first) return;
+  const itemH = first.offsetHeight;
+  const pad = (col.clientHeight/2) - (itemH/2); // computation to get the center of the column
+  col.style.paddingTop = pad + "px";// starting point is in the center
+  col.style.paddingBottom = pad + "px";
+  col.style.boxSizing = "border-box";
+  col.dataset.itemH = String(itemH);
+  col.scrollTop = 0; // start at 00
+}
