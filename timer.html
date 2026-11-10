@@ -74,3 +74,14 @@ setTimeout(() => {
   applyPaddingAndInit(s);
   updateAll();
 }, 0);
+
+//This function decides which number should be black/highlighted when you scroll.
+function updateCol(col){
+  const itemH = Number(col.dataset.itemH || 64);
+  const children = [...col.children];
+  let idx = Math.round(col.scrollTop / itemH); // how far you scrolled
+  idx = Math.max(0, Math.min(idx, children.length - 1)); //avoid scroll the limit value
+  children.forEach(c => c.classList.remove('active'));
+  if(children[idx]) children[idx].classList.add('active');
+  return idx;
+}
