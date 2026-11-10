@@ -85,3 +85,10 @@ function updateCol(col){
   if(children[idx]) children[idx].classList.add('active');
   return idx;
 }
+
+//It updates all 3 columns at the same time.
+function updateAll(){
+  const hi = updateCol(h);
+  const mi = updateCol(m);
+  const si = updateCol(s);
+  H = hi; M = mi; S = si;
