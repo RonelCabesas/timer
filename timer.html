@@ -92,3 +92,15 @@ function updateAll(){
   const mi = updateCol(m);
   const si = updateCol(s);
   H = hi; M = mi; S = si;
+}
+//This is the timer countdown logic when you press ▶.
+function start(){
+  let total=H*3600+M*60+S;
+  if(total<=0) return alert('hello world');
+  document.getElementById('picker').style.display='none';
+  let d=document.getElementById('display');
+  d.style.display='block';
+  d.textContent=`${String(H).padStart(2,'0')}:${String(M).padStart(2,'0')}:${String(S).padStart(2,'0')}`;
+  let btn = document.getElementById('btn');
+  btn.textContent='■';
+  btn.onclick=()=>{ document.getElementById('alarm').pause(); location.reload(); };
