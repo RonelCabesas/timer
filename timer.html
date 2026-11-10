@@ -66,3 +66,11 @@ function applyPaddingAndInit(col){
   col.dataset.itemH = String(itemH);
   col.scrollTop = 0; // start at 00
 }
+
+// wait a tick so offsetHeight is correct
+setTimeout(() => {
+  applyPaddingAndInit(h);
+  applyPaddingAndInit(m);
+  applyPaddingAndInit(s);
+  updateAll();
+}, 0);
